@@ -12,7 +12,8 @@ class Produk extends Model
     // sma_warehouses_products
     use HasFactory, Notifiable;
 
-    protected $table = 'sma_products';
+    protected $table = 'sma_warehouses_products';
+    // protected $table = 'sma_products';
     protected $guarded = [];
 
     /**
@@ -22,7 +23,7 @@ class Produk extends Model
      */
     public function relProdukDetail(): BelongsTo
     {
-        return $this->belongsTo(ProdukDetail::class, 'id', 'product_id');
+        return $this->belongsTo(ProdukDetail::class, 'product_id', 'id');
     }
 
     public function relGudang(): BelongsTo

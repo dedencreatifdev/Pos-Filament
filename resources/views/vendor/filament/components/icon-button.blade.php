@@ -60,7 +60,7 @@
                     IconSize::Medium => '-m-1.5',
                     IconSize::Large => '-m-1',
                 },
-                'h-8 w-8',
+                'h-7 w-8',
             ],
             ActionSize::Medium => [
                 match ($iconSize) {
@@ -68,7 +68,7 @@
                     IconSize::Medium => '-m-2',
                     IconSize::Large => '-m-1.5',
                 },
-                'h-9 w-9',
+                'h-7 w-9',
             ],
             ActionSize::Large => [
                 match ($iconSize) {
@@ -76,7 +76,7 @@
                     IconSize::Medium => '-m-2.5',
                     IconSize::Large => '-m-2',
                 },
-                'h-10 w-10',
+                'h-7 w-10',
             ],
             ActionSize::ExtraLarge => [
                 match ($iconSize) {
@@ -84,7 +84,7 @@
                     IconSize::Medium => '-m-3',
                     IconSize::Large => '-m-2.5',
                 },
-                'h-11 w-11',
+                'h-7 w-11',
             ],
         },
         match ($color) {
@@ -101,11 +101,11 @@
     );
 
     $iconClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-icon-btn-icon',
+        'fi-icon-btn-icon ',
         match ($iconSize) {
-            IconSize::Small => 'h-4 w-4',
-            IconSize::Medium => 'h-5 w-5',
-            IconSize::Large => 'h-6 w-6',
+            IconSize::Small => 'h-2 w-4',
+            IconSize::Medium => 'h-2 w-5',
+            IconSize::Large => 'h-2 w-6',
             default => $iconSize,
         },
     ]);

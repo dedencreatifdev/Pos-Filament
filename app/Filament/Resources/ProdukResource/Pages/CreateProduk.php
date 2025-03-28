@@ -9,7 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateProduk extends CreateRecord
 {
     protected static string $resource = ProdukResource::class;
+    protected static bool $canCreateAnother = false;
 
+    // Redirect
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');

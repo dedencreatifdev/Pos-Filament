@@ -183,7 +183,7 @@
                             // Using an arbitrary value instead of the h-dvh class that was added in Tailwind CSS v3.4.0
                             // to ensure compatibility with custom themes that may use an older version of Tailwind CSS.
                             'h-[100dvh]' => $slideOver || ($width === MaxWidth::Screen),
-                            'mx-auto rounded-xl' => ! ($slideOver || ($width === MaxWidth::Screen)),
+                            'mx-auto rounded-sm' => ! ($slideOver || ($width === MaxWidth::Screen)),
                             'hidden' => ! $visible,
                             match ($width) {
                                 MaxWidth::ExtraSmall => 'max-w-xs',

@@ -11,7 +11,8 @@ class ProdukDetail extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $table = 'sma_warehouses_products';
+    protected $table = 'sma_products';
+    // protected $table = 'sma_warehouses_products';
     protected $guarded = [];
 
     /**
@@ -34,5 +35,8 @@ class ProdukDetail extends Model
         return $this->belongsTo(Merk::class, 'brand', 'id');
     }
 
-
+    public function relGudang(): BelongsTo
+    {
+        return $this->belongsTo(Gudang::class, 'brand', 'id');
+    }
 }

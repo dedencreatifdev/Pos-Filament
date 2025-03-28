@@ -18,29 +18,32 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     // protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-    // Setting
     protected static ?string $navigationGroup = 'Setting';
+    
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('email')
                     ->email()
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\DateTimePicker::make('email_verified_at'),
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->description('User')
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
@@ -58,6 +61,7 @@ class UserResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->striped()
             ->filters([
                 //
             ])
@@ -70,7 +74,7 @@ class UserResource extends Resource
                 ]),
             ]);
     }
-
+        
     public static function getRelations(): array
     {
         return [

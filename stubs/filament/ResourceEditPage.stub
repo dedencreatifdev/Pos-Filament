@@ -13,7 +13,13 @@ class {{ resourcePageClass }} extends {{ baseResourcePageClass }}
     protected function getHeaderActions(): array
     {
         return [
-{{ actions }}
+            {{ actions }}
         ];
+    }
+
+    // Redirect
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
     }
 }

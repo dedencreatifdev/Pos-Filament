@@ -13,11 +13,11 @@ class EditProduk extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\ViewAction::make(),
-            Actions\DeleteAction::make(),
+                        Actions\DeleteAction::make(),
         ];
     }
 
+    // Redirect
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
