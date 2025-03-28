@@ -69,16 +69,20 @@ class AppPanelProvider extends PanelProvider
             ])
             ->maxContentWidth('full')
             ->sidebarFullyCollapsibleOnDesktop()
-            ->sidebarWidth('16rem')
+            ->sidebarWidth('17rem')
             ->font('Tahoma')
 
             ->navigationGroups([
                 NavigationGroup::make()
-                     ->label('Produk')
-                     ->icon('heroicon-o-squares-2x2'),
+                    ->label('Produk')
+                    ->icon('heroicon-o-squares-2x2'),
                 NavigationGroup::make()
-                    ->label('Blog')
+                    ->label('Transaksi')
                     ->icon('heroicon-o-pencil'),
+                NavigationGroup::make()
+                    ->label('Master Data')
+                    ->icon('heroicon-o-building-office-2')
+                    ->collapsed(),
                 NavigationGroup::make()
                     ->label('Setting')
                     ->icon('heroicon-o-cog-6-tooth')

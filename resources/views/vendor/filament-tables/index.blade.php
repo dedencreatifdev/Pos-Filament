@@ -130,7 +130,7 @@
             @if (! $hasHeader) x-cloak @endif
             x-bind:hidden="! (@js($hasHeader) || (selectedRecords.length && @js(count($bulkActions))))"
             x-show="@js($hasHeader) || (selectedRecords.length && @js(count($bulkActions)))"
-            class="fi-ta-header-ctn divide-y divide-gray-200 dark:divide-white/10"
+            class="divide-y divide-gray-200 fi-ta-header-ctn dark:divide-white/10"
         >
             {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\Tables\View\TablesRenderHook::HEADER_BEFORE, scopes: static::class) }}
 
@@ -178,11 +178,11 @@
             <div
                 @if (! $hasHeaderToolbar) x-cloak @endif
                 x-show="@js($hasHeaderToolbar) || (selectedRecords.length && @js(count($bulkActions)))"
-                class="fi-ta-header-toolbar flex items-center justify-between gap-x-4 px-4 py-3 sm:px-6"
+                class="flex items-center justify-between px-1 py-1 fi-ta-header-toolbar gap-x-4 sm:px-1"
             >
                 {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\Tables\View\TablesRenderHook::TOOLBAR_START, scopes: static::class) }}
 
-                <div class="flex shrink-0 items-center gap-x-4">
+                <div class="flex items-center shrink-0 gap-x-4">
                     {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\Tables\View\TablesRenderHook::TOOLBAR_REORDER_TRIGGER_BEFORE, scopes: static::class) }}
 
                     @if ($isReorderable)
@@ -216,7 +216,7 @@
                 </div>
 
                 @if ($isGlobalSearchVisible || $hasFiltersDialog || $hasColumnToggleDropdown)
-                    <div class="ms-auto flex items-center gap-x-4">
+                    <div class="flex items-center ms-auto gap-x-4">
                         {{ \Filament\Support\Facades\FilamentView::renderHook(\Filament\Tables\View\TablesRenderHook::TOOLBAR_SEARCH_BEFORE, scopes: static::class) }}
 
                         @if ($isGlobalSearchVisible)
@@ -303,7 +303,7 @@
 
                     @if ($isSelectionEnabled || count($sortableColumns))
                         <div
-                            class="flex items-center gap-4 gap-x-6 bg-gray-50 px-4 dark:bg-white/5 sm:px-6"
+                            class="flex items-center gap-4 px-4 gap-x-6 bg-gray-50 dark:bg-white/5 sm:px-6"
                         >
                             @if ($isSelectionEnabled && (! $isReordering))
                                 <x-filament-tables::selection.checkbox
@@ -324,7 +324,7 @@
                                         return null
                                     "
                                     x-on:click="toggleSelectRecordsOnPage"
-                                    class="fi-ta-page-checkbox my-4"
+                                    class="my-4 fi-ta-page-checkbox"
                                 />
                             @endif
 
@@ -349,7 +349,7 @@
                                             direction = 'asc'
                                         })
                                     "
-                                    class="flex gap-x-3 py-3"
+                                    class="flex py-3 gap-x-3"
                                 >
                                     <label>
                                         <x-filament::input.wrapper
@@ -562,7 +562,7 @@
                                             :value="$recordKey"
                                             x-model="selectedRecords"
                                             :data-group="$recordGroupKey"
-                                            class="fi-ta-record-checkbox mx-3 my-4"
+                                            class="mx-3 my-4 fi-ta-record-checkbox"
                                         />
                                     @endif
 
@@ -795,7 +795,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('filament-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="w-1 fi-ta-actions-header-cell"
                                     ></th>
                                 @endif
                             @endif
@@ -833,7 +833,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('filament-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="w-1 fi-ta-actions-header-cell"
                                     ></th>
                                 @endif
                             @endif
@@ -878,7 +878,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('filament-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="w-1 fi-ta-actions-header-cell"
                                     ></th>
                                 @endif
                             @endif
@@ -918,7 +918,7 @@
                                 @else
                                     <th
                                         aria-label="{{ trans_choice('filament-tables::table.columns.actions.label', $flatActionsCount) }}"
-                                        class="fi-ta-actions-header-cell w-1"
+                                        class="w-1 fi-ta-actions-header-cell"
                                     ></th>
                                 @endif
                             @endif
@@ -1267,7 +1267,7 @@
                 :extreme-links="$hasExtremePaginationLinks()"
                 :page-options="$getPaginationPageOptions()"
                 :paginator="$records"
-                class="fi-ta-pagination px-3 py-3 sm:px-6"
+                class="px-3 py-3 fi-ta-pagination sm:px-6"
             />
         @endif
 
@@ -1275,7 +1275,7 @@
             <x-filament-tables::filters
                 :apply-action="$getFiltersApplyAction()"
                 :form="$getFiltersForm()"
-                class="fi-ta-filters-below-content p-4 sm:px-6"
+                class="p-4 fi-ta-filters-below-content sm:px-6"
             />
         @endif
     </x-filament-tables::container>

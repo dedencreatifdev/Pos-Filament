@@ -24,6 +24,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Validation\Rules\Numeric;
 use Ramsey\Uuid\Type\Decimal;
 use Ramsey\Uuid\Type\Integer;
 
@@ -68,7 +69,7 @@ class ProdukResource extends Resource
                     ->sortable(),
                 TextColumn::make('relProdukDetail.name')
 
-                    // ->canWrap('product_id')
+                    // ->description(fn($record) => number_format($record->relProdukDetail->price))
                     ->wrap()
                     ->label('Name Produk')
                     ->searchable()
@@ -125,7 +126,7 @@ class ProdukResource extends Resource
                     ->visibleFrom('sm')
                     ->numeric(decimalPlaces: 2)
                     ->alignCenter(),
-                TextColumn::make('relGudang.name')
+                TextColumn::make('relGudang.code')
                     ->visibleFrom('lg')
                     ->label('Gudang')
                     ->sortable(),
@@ -136,10 +137,16 @@ class ProdukResource extends Resource
                 'draft' => 'opacity-30',
                 '0.0000' => 'border-s-2 border-orange-600 dark:border-orange-300',
                 'published' => 'border-s-2 border-green-600 dark:border-green-300',
-                default => 'bg-primary-500',
+                default => 'bg-warning',
             })
             ->paginated([15, 25, 35, 50, 100, 'all'])
             ->striped()
+
+            ->emptyStateHeading('Produk tidak ditemukan')
+            ->emptyStateIcon('heroicon-o-bookmark')
+            ->emptyStateDescription('Silahkan cari produk yang anda inginkan atau tambahkan produk baru')
+
+            // ->hiddenFilterIndicators(true)
             ->filters([
                 SelectFilter::make('brand')
                     ->label('Merk')
@@ -160,7 +167,7 @@ class ProdukResource extends Resource
             ->actions([
                 ActionGroup::make([
                     Tables\Actions\EditAction::make()
-                        ->icon('heroicon-o-document-text')
+                        ->icon('heroicon-o-pencil-square')
                         ->slideOver()
                         ->label('Edit')
                         ->color('success'),
@@ -189,8 +196,8 @@ class ProdukResource extends Resource
     {
         return [
             'index' => Pages\ListProduks::route('/'),
-            'create' => Pages\CreateProduk::route('/create'),
-            'edit' => Pages\EditProduk::route('/{record}/edit'),
+            // 'create' => Pages\CreateProduk::route('/create'),
+            // 'edit' => Pages\EditProduk::route('/{record}/edit'),
         ];
     }
 

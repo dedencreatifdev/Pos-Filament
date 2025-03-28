@@ -17,10 +17,10 @@ class {{ resourceClass }} extends Resource
 {
     protected static ?string $model = {{ modelClass }}::class;
 
-    // protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    {{ clusterAssignment }}
+    // protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';{{ clusterAssignment }}
     protected static ?string $navigationGroup = 'Setting';
-    protected static ?string $navigationLabel = 'Custom List';
+    protected static ?string $navigationLabel = '{{ modelClass }}';
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
