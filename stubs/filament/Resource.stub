@@ -13,6 +13,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use Filament\Forms\Components\Section;
+
 class {{ resourceClass }} extends Resource
 {
     protected static ?string $model = {{ modelClass }}::class;
@@ -22,11 +24,20 @@ class {{ resourceClass }} extends Resource
     protected static ?string $navigationLabel = '{{ modelClass }}';
     protected static ?int $navigationSort = 3;
 
+    
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
+                Section::make('{{ modelClass }}')
+                ->description('The items you have selected for purchase')
+                ->icon('heroicon-m-bookmark-square')
+                ->iconColor('primary')
+                ->schema([
 {{ formSchema }}
+                ])
+                ->columns(3),
             ]);
     }
 

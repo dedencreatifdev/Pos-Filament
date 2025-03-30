@@ -78,7 +78,7 @@ class AppPanelProvider extends PanelProvider
                     ->icon('heroicon-o-squares-2x2'),
                 NavigationGroup::make()
                     ->label('Transaksi')
-                    ->icon('heroicon-o-pencil'),
+                    ->icon('heroicon-o-shopping-cart'),
                 NavigationGroup::make()
                     ->label('Master Data')
                     ->icon('heroicon-o-building-office-2')

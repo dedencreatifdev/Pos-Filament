@@ -93,15 +93,8 @@ class ProdukResource extends Resource
                 TextColumn::make('quantity')
                     ->label('Stok')
                     ->numeric(decimalPlaces: 2)
-                    ->color([
-                        // 'danger' => fn($state, $record) => (int)$state < $record->relProdukDetail->alert_quantity,
-                        // 'success' => fn($state, $record) => (int)$state >= 0,
-                        // 'danger'=>default,
-                    ])
-                    // ->color([
-                    //     'success' => '0',
-                    //     'danger' => '1',
-                    // ])
+                    ->alignCenter()
+                    ->formatStateUsing(fn($state, $record) => number_format($state, 2))
                     ->badge()
                     ->color(fn(string $state, $record): string => match (true) {
                         (int)$state <= $record->relProdukDetail->alert_quantity => 'danger',
@@ -128,8 +121,7 @@ class ProdukResource extends Resource
                     ->alignCenter(),
                 TextColumn::make('relGudang.code')
                     ->visibleFrom('lg')
-                    ->label('Gudang')
-                    ->sortable(),
+                    ->label('Gudang'),
                 TextColumn::make('rack')
                     ->visibleFrom('lg'),
             ])

@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Filament\Resources\KetegoriResource\Pages;
+namespace App\Filament\Resources\PenjualanResource\Pages;
 
-use App\Filament\Resources\KetegoriResource;
+use App\Filament\Resources\PenjualanResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditKetegori extends EditRecord
+class EditPenjualan extends EditRecord
 {
-    protected static string $resource = KetegoriResource::class;
+    protected static string $resource = PenjualanResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\ViewAction::make(),
+                        Actions\ViewAction::make(),
             Actions\DeleteAction::make(),
         ];
     }

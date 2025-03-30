@@ -9,11 +9,16 @@ use {{ baseResourcePage }};
 class {{ resourcePageClass }} extends {{ baseResourcePageClass }}
 {
     protected static string $resource = {{ resourceClass }}::class;
+    // protected static ?string $title = 'Page Title';
+    // protected ?string $subheading = 'Custom Page Subheading';
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Add')
+                ->icon('heroicon-o-plus-circle')
+            ,
         ];
     }
 }

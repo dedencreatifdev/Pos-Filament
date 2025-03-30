@@ -4,23 +4,16 @@ namespace App\Filament\Resources\KetegoriResource\Pages;
 
 use App\Filament\Resources\KetegoriResource;
 use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\ViewRecord;
 
-class EditKetegori extends EditRecord
+class ViewKetegori extends ViewRecord
 {
     protected static string $resource = KetegoriResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\ViewAction::make(),
-            Actions\DeleteAction::make(),
+            Actions\EditAction::make(),
         ];
-    }
-
-    // Redirect
-    protected function getRedirectUrl(): string
-    {
-        return $this->getResource()::getUrl('index');
     }
 }
