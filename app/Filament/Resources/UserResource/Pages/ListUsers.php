@@ -9,11 +9,16 @@ use Filament\Resources\Pages\ListRecords;
 class ListUsers extends ListRecords
 {
     protected static string $resource = UserResource::class;
+    // protected static ?string $title = 'Page Title';
+    // protected ?string $subheading = 'Custom Page Subheading';
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Tambah')
+                ->icon('heroicon-o-plus-circle')
+            ,
         ];
     }
 }

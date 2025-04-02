@@ -84,10 +84,16 @@ class AppPanelProvider extends PanelProvider
                     ->icon('heroicon-o-building-office-2')
                     ->collapsed(),
                 NavigationGroup::make()
+                    ->label('Laporan')
+                    ->icon('heroicon-o-cog-6-tooth')
+                    ->collapsed(),
+                NavigationGroup::make()
                     ->label('Setting')
                     ->icon('heroicon-o-cog-6-tooth')
                     ->collapsed(),
             ])
+            ->domain('pos-filament.test')
+
         ;
     }
 }

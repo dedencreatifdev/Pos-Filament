@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Produk extends Model
+class Member extends Model
 {
-    /** @use HasFactory<\Database\Factories\ProdukFactory> */
+    /** @use HasFactory<\Database\Factories\MemberFactory> */
     use HasFactory, HasUuids, SoftDeletes;
-    protected $guarded=[];
+    protected $guarded = [];
 
-    // fillable
+    // filable
 }
