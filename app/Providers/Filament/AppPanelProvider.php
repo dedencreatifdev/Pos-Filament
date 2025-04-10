@@ -55,6 +55,6 @@ class AppPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->maxContentWidth('full')
-            ;
+        ;
     }
 }
