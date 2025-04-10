@@ -12,7 +12,7 @@
         :two-xl="$getColumns('2xl')"
         :attributes="
             \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-component-ctn gap-6'])
+                ->class(['fi-fo-component-ctn gap-2'])
         "
     >
         @foreach ($getComponents() as $infolistComponent)
