@@ -43,7 +43,7 @@
 >
     <div class="overflow-x-clip">
         <header
-            class="fi-sidebar-header flex h-16 items-center bg-white px-6 ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10 lg:shadow-sm"
+            class="fi-sidebar-header flex h-10 items-center bg-primary-600 px-6 ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10 lg:shadow-sm"
         >
             <div
                 @if (filament()->isSidebarCollapsibleOnDesktop())
@@ -127,7 +127,7 @@
                     :attributes="\Filament\Support\prepare_inherited_attributes($group->getExtraSidebarAttributeBag())"
                 />
             @endforeach
-        </ul> 
+        </ul>
 
         <script>
             var collapsedGroups = JSON.parse(
