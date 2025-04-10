@@ -17,7 +17,7 @@
             ->class([
                 'fi-ta-icon flex gap-1.5',
                 'flex-wrap' => $canWrap(),
-                'px-3 py-4' => ! $isInline(),
+                ' px-3 py-1' => ! $isInline(),
                 'flex-col' => $isListWithLineBreaks(),
             ])
     }}

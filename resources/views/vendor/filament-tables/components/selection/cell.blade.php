@@ -4,7 +4,7 @@
             ->class(['fi-ta-selection-cell w-1'])
     "
 >
-    <div class="px-3 py-4">
+    <div class=" px-3 py-1">
         {{ $slot }}
     </div>
 </x-filament-tables::cell>
