@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -60,6 +61,18 @@ class AppPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->maxContentWidth('full')
+            ->navigationGroups([
+                NavigationGroup::make()
+                     ->label('Shop')
+                     ->icon('heroicon-o-shopping-cart'),
+                NavigationGroup::make()
+                    ->label('Blog')
+                    ->icon('heroicon-o-pencil'),
+                NavigationGroup::make()
+                    ->label('Settings')
+                    ->icon('heroicon-o-cog-6-tooth')
+                    ->collapsed(),
+            ])
         ;
     }
 }

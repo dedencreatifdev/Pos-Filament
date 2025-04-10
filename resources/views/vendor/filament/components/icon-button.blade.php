@@ -60,7 +60,7 @@
                     IconSize::Medium => '-m-1.5',
                     IconSize::Large => '-m-1',
                 },
-                'h-8 w-8',
+                'h-7 w-8',
             ],
             ActionSize::Medium => [
                 match ($iconSize) {
@@ -68,7 +68,7 @@
                     IconSize::Medium => '-m-2',
                     IconSize::Large => '-m-1.5',
                 },
-                'h-9 w-9',
+                'h-7 w-9',
             ],
             ActionSize::Large => [
                 match ($iconSize) {
@@ -76,7 +76,7 @@
                     IconSize::Medium => '-m-2.5',
                     IconSize::Large => '-m-2',
                 },
-                'h-10 w-10',
+                'h-7 w-10',
             ],
             ActionSize::ExtraLarge => [
                 match ($iconSize) {
@@ -84,7 +84,7 @@
                     IconSize::Medium => '-m-3',
                     IconSize::Large => '-m-2.5',
                 },
-                'h-11 w-11',
+                'h-7 w-11',
             ],
         },
         match ($color) {
