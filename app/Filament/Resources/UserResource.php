@@ -61,9 +61,7 @@ class UserResource extends Resource
             ->heading('User')
             ->description('Manage your User here.')
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
