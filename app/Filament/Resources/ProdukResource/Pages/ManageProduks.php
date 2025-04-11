@@ -4,17 +4,16 @@ namespace App\Filament\Resources\ProdukResource\Pages;
 
 use App\Filament\Resources\ProdukResource;
 use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Resources\Pages\ManageRecords;
 
-class EditProduk extends EditRecord
+class ManageProduks extends ManageRecords
 {
     protected static string $resource = ProdukResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\ViewAction::make(),
-            Actions\DeleteAction::make(),
+            Actions\CreateAction::make(),
         ];
     }
 }

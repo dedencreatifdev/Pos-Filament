@@ -26,9 +26,53 @@ class ProdukResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('tipe_id')
+                    ->required()
+                    ->maxLength(100),
                 Forms\Components\TextInput::make('kode_produk')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(25),
+                Forms\Components\TextInput::make('nama_barang')
+                    ->required()
+                    ->maxLength(50),
+                Forms\Components\TextInput::make('satuan_id')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('kategori_id')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('merk_id')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('harga_jual')
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('stok_alert')
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('gudang_id')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('lokasi_id')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('rak_id')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('barcode')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('barcode_type')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('keterangan')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('foto')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\Toggle::make('status')
+                    ->required(),
             ]);
     }
 
@@ -38,8 +82,45 @@ class ProdukResource extends Resource
             ->heading('Produk')
             ->description('Manage your Produk here.')
             ->columns([
+                
+                Tables\Columns\TextColumn::make('tipe_id')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('kode_produk')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('nama_barang')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('satuan_id')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('kategori_id')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('merk_id')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('harga_jual')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('stok_alert')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('gudang_id')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('lokasi_id')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('rak_id')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('barcode')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('barcode_type')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('keterangan')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('foto')
+                    ->searchable(),
+                Tables\Columns\IconColumn::make('status')
+                    ->boolean(),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -61,6 +142,7 @@ class ProdukResource extends Resource
                 ActionGroup::make([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
                 ])
             ])
             ->bulkActions([
@@ -70,20 +152,10 @@ class ProdukResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProduks::route('/'),
-            'create' => Pages\CreateProduk::route('/create'),
-            'view' => Pages\ViewProduk::route('/{record}'),
-            'edit' => Pages\EditProduk::route('/{record}/edit'),
+            'index' => Pages\ManageProduks::route('/'),
         ];
     }
 }
