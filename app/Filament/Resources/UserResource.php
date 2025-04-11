@@ -38,12 +38,16 @@ class UserResource extends Resource
                     ->password()
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Select::make('password')
+                    ->required(),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->heading('Clients')
+            ->description('Manage your clients here.')
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
@@ -71,9 +75,9 @@ class UserResource extends Resource
             ])
             ->actions([
                 ActionGroup::make([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
                 ])
             ])
             ->bulkActions([

@@ -33,6 +33,8 @@ class {{ resourceClass }} extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->heading('{{ modelClass }}')
+            ->description('Manage your {{ modelClass }} here.')
             ->columns([
 {{ tableColumns }}
             ])

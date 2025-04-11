@@ -37,7 +37,7 @@
         @if (filled($label))
             <span
                 @class([
-                    'fi-pagination-item-label px-1.5 text-sm font-semibold',
+                    'fi-pagination-item-label px-1 text-sm font-medium',
                     'text-gray-700 dark:text-gray-200' => ! ($disabled || $active),
                     'text-gray-500 dark:text-gray-400' => $disabled,
                     'text-primary-600 dark:text-primary-400' => $active,

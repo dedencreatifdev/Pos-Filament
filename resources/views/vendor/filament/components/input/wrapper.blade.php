@@ -35,7 +35,7 @@
     $hasAlpineValidClasses = filled($alpineValid);
     $hasAlpineClasses = $hasAlpineDisabledClasses || $hasAlpineValidClasses;
 
-    $enabledWrapperClasses = 'bg-white dark:bg-white/5 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-2';
+    $enabledWrapperClasses = 'bg-white dark:bg-white/5 [&:not(:has(.fi-ac-action:focus))]:focus-within:ring-1';
     $disabledWrapperClasses = 'fi-disabled bg-gray-50 dark:bg-transparent';
     $validWrapperClasses = 'ring-gray-950/10';
     $invalidWrapperClasses = 'fi-invalid ring-danger-600 dark:ring-danger-500';
@@ -87,7 +87,7 @@
         $attributes
             ->except(['wire:target', 'tabindex'])
             ->class([
-                'fi-input-wrp flex rounded-lg shadow-sm ring-1 transition duration-75',
+                'fi-input-wrp flex rounded-sm shadow-sm ring-1 transition duration-75',
                 $enabledWrapperClasses => (! $hasAlpineClasses) && (! $disabled),
                 $disabledWrapperClasses => (! $hasAlpineClasses) && $disabled,
                 $validWrapperClasses => (! $hasAlpineClasses) && $valid,

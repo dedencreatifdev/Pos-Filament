@@ -60,6 +60,7 @@ class AppPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            ->font('Tahoma')
             ->maxContentWidth('full')
             ->navigationGroups([
                 NavigationGroup::make()
